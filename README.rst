@@ -1,6 +1,6 @@
 |Build Status|
 
-numerizer
+numerizer (using Spacy large model)
 =========
 
 A Python module to convert natural language numerics into ints and floats.
@@ -14,13 +14,13 @@ The numerizer library can be installed from PyPI as follows:
 
 .. code:: bash
 
-    $ pip install numerizer
+    $ pip install -e git+git://github.com/akanshajainn/numerizer#egg=numerizer
 
 or from source as follows:
 
 .. code:: bash
 
-    $ git clone https://github.com/jaidevd/numerizer.git
+    $ git clone https://github.com/akanshajainn/numerizer.git
     $ cd numerizer
     $ pip install -e .
 
@@ -62,7 +62,7 @@ Any named entities of a quantitative nature within a SpaCy document can be numer
 .. code:: python
 
     >>> from spacy import load
-    >>> nlp = load('en_core_web_sm')  # or load any other spaCy model
+    >>> nlp = load('en_core_web_lg')  # or load any other spaCy model
     >>> doc = nlp('The projected revenue for the next quarter is over two million dollars.')
     >>> doc._.numerize()
     {the next quarter: 'the next 1/4', over two million dollars: 'over 2000000 dollars'}
